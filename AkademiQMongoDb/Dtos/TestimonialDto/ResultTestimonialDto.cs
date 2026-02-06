@@ -1,13 +1,7 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-using System.Security.Principal;
-
-namespace AkademiQMongoDb.Entities
+﻿namespace AkademiQMongoDb.Dtos.TestimonialDto
 {
-    public class Testimonial
+    public class ResultTestimonialDto
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string TestimonialId { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }

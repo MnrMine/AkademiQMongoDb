@@ -1,14 +1,7 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-
-namespace AkademiQMongoDb.Entities
+﻿namespace AkademiQMongoDb.Dtos.ProductDto
 {
-    public class Product
+    public class CreateProductDto
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string ProductId { get; set; }
-
         public string ImageUrl { get; set; }
         public string ProductName { get; set; }
         public int Totaltime { get; set; }
