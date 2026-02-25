@@ -1,7 +1,22 @@
+using AkademiQMongoDb.Services.ProductServices;
+using AkademiQMongoDb.Services.TestimonialServices;
+using AkademiQMongoDb.Settings;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ITestimonialService,TestimonialService>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettingsKey"));
+builder.Services.AddScoped<IDatabaseSettings>(sp =>
+{
+    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
+});
 
 var app = builder.Build();
 

@@ -1,0 +1,42 @@
+﻿@model AkademiQMongoDb.Dtos.ProductDto.CreateProductDto
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ürün Ekleme Sayfası</h4>
+            
+            <form  method="post" class="forms-sample">
+                <div class="form-group">
+                    <label >Ürün Adı</label>
+                    <input type="text" class="form-control" asp-for="ProductName" placeholder="Ürün Adı">
+                </div>
+                <div class="form-group">
+                    <label >Ürün Yapım Zamanı</label>
+                    <input type="text" class="form-control" asp-for="Totaltime" placeholder="Toplam Zaman">
+                </div>
+                <div class="form-group">
+                    <label >Ürün Güncel Fiyatı</label>
+                    <input type="text" class="form-control" asp-for="Price" placeholder="Ürün  Güncel Fiyatı">
+                </div>
+                <div class="form-group">
+                    <label>Ürünün Eski Fiyatı</label>
+                    <input type="text" class="form-control" asp-for="OldPrice" placeholder="Ürün Eski Fiyatı">
+                </div>
+                
+                
+                <div class="form-group">
+                    <label >Ürünün Görseli</label>
+                    <input type="text" class="form-control"  asp-for="ImageUrl" placeholder="Ürün Görseli">
+                </div>
+                
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-light">Vazgeç</button>
+            </form>
+        </div>
+    </div>
+</div>
+
