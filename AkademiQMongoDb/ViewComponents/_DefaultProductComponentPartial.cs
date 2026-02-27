@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AkademiQMongoDb.Services.ProductServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.ViewComponents
 {
     public class _DefaultProductComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IProductService _productService;
+
+        public _DefaultProductComponentPartial(IProductService productService)
         {
-            return View();
+            _productService = productService;
+        }
+
+        public async Task< IViewComponentResult> InvokeAsync()
+        {
+            var values = await _productService.GetAllProductAsync();
+            var list=values.Take(3).ToList();
+            return View(list);
         }
     }
 }
